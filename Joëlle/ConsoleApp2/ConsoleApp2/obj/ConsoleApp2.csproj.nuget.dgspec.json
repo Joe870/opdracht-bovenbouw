@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gebruiker\\OneDrive\\Documenten\\Studie software developer\\Sofware developer\\Bovenbouw\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj": {}
+    "C:\\Users\\Gebruiker\\OneDrive\\Documenten\\Studie software developer\\Sofware developer\\Bovenbouw\\Joëlle\\opdracht-bovenbouw\\Joëlle\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gebruiker\\OneDrive\\Documenten\\Studie software developer\\Sofware developer\\Bovenbouw\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj": {
+    "C:\\Users\\Gebruiker\\OneDrive\\Documenten\\Studie software developer\\Sofware developer\\Bovenbouw\\Joëlle\\opdracht-bovenbouw\\Joëlle\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\OneDrive\\Documenten\\Studie software developer\\Sofware developer\\Bovenbouw\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj",
+        "projectUniqueName": "C:\\Users\\Gebruiker\\OneDrive\\Documenten\\Studie software developer\\Sofware developer\\Bovenbouw\\Joëlle\\opdracht-bovenbouw\\Joëlle\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj",
         "projectName": "ConsoleApp2",
-        "projectPath": "C:\\Users\\Gebruiker\\OneDrive\\Documenten\\Studie software developer\\Sofware developer\\Bovenbouw\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj",
+        "projectPath": "C:\\Users\\Gebruiker\\OneDrive\\Documenten\\Studie software developer\\Sofware developer\\Bovenbouw\\Joëlle\\opdracht-bovenbouw\\Joëlle\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj",
         "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gebruiker\\OneDrive\\Documenten\\Studie software developer\\Sofware developer\\Bovenbouw\\ConsoleApp2\\ConsoleApp2\\obj\\",
+        "outputPath": "C:\\Users\\Gebruiker\\OneDrive\\Documenten\\Studie software developer\\Sofware developer\\Bovenbouw\\Joëlle\\opdracht-bovenbouw\\Joëlle\\ConsoleApp2\\ConsoleApp2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
