@@ -3,7 +3,17 @@ using System.ComponentModel.Design;
 using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
-// stap 6 repeat stap 4 and 5 until the player quits the game
+
+// stap 1 the player starts the game.
+// stap 2 the player gives a name to the first trainer
+// stap 3 the player gives a name to the second trainer
+// stap 4 the first trainer throws the first pokeball on its belt
+// stap 5 the pokeball released the charmander and charmander
+// stap 6 the second trainer throws the first pokeball on its belt
+// stap 7 the pokeball released the charmander and charmander does its battle cry
+// stap 8 the first trainer returns the charmander back to its pokeball
+// stap 9 the second trainer returns the charmander back to its pokeball
+// stap 10 repeat 4 to 9 untill all pokeballs have been used by both trainers
 class Program {
     public static void Main(String[] args)
     {
@@ -82,7 +92,29 @@ class Charmander
 
 class pokeball
 {
+    bool has_pokemon = true; 
     public int amount_pokeballs = 6;
+    public string open()
+    {
+        if(amount_pokeballs <= 6)
+        {
+            bool has_pokemon = true;
+            string pokemon = "charmander";
+            amount_pokeballs -= 1;
+        }
+        else { 
+            has_pokemon = false;
+            string pokemon = null;
+        }
+    }
+    public void close()
+    {
+        amount_pokeballs += 1; 
+        if (amount_pokeballs > 6)
+        {
+            amount_pokeballs = 6; 
+        }
+    }
 }
 
 class trainer
@@ -98,7 +130,9 @@ class trainer
     {
         console.writeline("what name do you want to give the first trainer?");
         string nametrainer1 = console.readline();
-        return nametrainer1;
+        console.writeline("what name do you want to give the second trianer");
+        string nametrainer2 = console.readline();
+        return nametrainer1, nametrainer2;
     }
     public void setname1(string newname)
     {
@@ -111,6 +145,7 @@ class trainer
         return nametrainer2;
     }
     public void setname2(string newname)
+
     {
         this.nametrainer2 = newname;
     }
@@ -119,6 +154,10 @@ class trainer
         charmander.dogrowl(); 
     }
 
+    public string belt()
+    {
+        list<int> pokeballs = new list<int>();
+    }
     public string returnpokemon()
     {
 
