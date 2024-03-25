@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 
 abstract class Pokemon
 {
+
     public string nickName;
     public string strength;
     public string weakness;

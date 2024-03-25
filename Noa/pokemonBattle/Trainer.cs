@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 //Trainer class
 class Trainer
 {
-    public String name;
+    public readonly string name;
     public int amountBelt;
     public List<Pokeball> belt;
     public int index {  get; set; }
