@@ -3,6 +3,8 @@ using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
+namespace Pokebattle;
+
 class Battle
 {
     //make pokemonFromBall a var in here

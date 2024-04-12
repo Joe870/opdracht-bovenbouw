@@ -3,6 +3,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
+namespace Pokebattle;
 //Trainer class
 class Trainer
 {
