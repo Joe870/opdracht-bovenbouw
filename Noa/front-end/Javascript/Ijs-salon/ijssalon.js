@@ -1,6 +1,6 @@
 const icecream = {"bakje" : 0, "hoorntje" : 0, "liter": 0, "bollentjes": 0};
 const icecreamFlavor = {"aardbei" : 0, "chocolade" : 0, "vanilla" : 0};
-const toppings = {"slagroom" : 0, "sprinkels" : 0, "caramel saus" : 0};
+const toppings = {"topping" : 0};
 const price = {"bolletjes" : 0.95, "bakje" : 0.75, "hoorntje" : 1.25, "liter" : 9.80};
 
 var order = "y";
@@ -17,8 +17,8 @@ while (order == "y"){
         whichFlavor(icecreamLiters);
         order = continueOrder();
     }
-    calcBon();
 }
+calcBon();
 
 //FUNCTIONS
 function checkClient(){
@@ -41,6 +41,7 @@ function askIcecreamAmount(){
         if (icecreamAmount > 8){
             alert("Sorry we hebben geen bakjes zo groot")
         }else {
+            icecream["bollentjes"] += icecreamAmount;
             return icecreamAmount;
         }
     }
@@ -50,6 +51,7 @@ function askIcecreamAmount(){
 function askIcecreamLiters(){
     var askAmount = prompt("Hoeveel liters ijs wilt u bestelen?");
     askAmount = parseInt(askAmount);
+    icecream["liter"] += askAmount;
     return askAmount;
 }
 
@@ -97,13 +99,13 @@ function whichTopping(){
     while (true){
         var topping = prompt("Wat voor topping wilt u? A)geen B)slagroom C)sprinkels D)caramel saus").toLocaleUpperCase();
         if (topping == "B") {
-            toppings["slagroom"] += 1;
+            toppings["topping"] += 1;
             break;
         } else if (topping == "C"){
-            toppings["sprinkels"] += 1;
+            toppings["topping"] += 1;
             break;
         } else if (topping == "D"){
-            toppings["caramel saus"] += 1;
+            toppings["topping"] += 1;
             break;
         } else if (topping == "A"){
             break;
@@ -116,7 +118,7 @@ function whichTopping(){
 //Vraagt of de klant meer wilt bestelen
 function continueOrder(){
     while (true){
-        var order = prompt("Wilt u nog iets bestelen y/n");
+        var order = prompt("Wilt u nog iets bestelen y/n").toLowerCase();
         if (order == "y"){
             return order;
         } else if (order == "n"){
@@ -129,7 +131,17 @@ function continueOrder(){
 
 //Bereken de bon
 function calcBon(){
-    var bollentjesPrice = icecream["bollentjes"] * price["bollentjes"];
-    document.write("Papi Galato Bon-------------\n");
-    document.write("bollentjes: " + icecream["bollentjes"] + "x" + price["bolletjes"] + "=" + bollentjesPrice + "\n")
+    //Totaal berekenen
+    var bollentjesPrice = (icecream["bollentjes"] * price["bolletjes"]);
+    var literPrice = (icecream["liter"] * price["liter"]);
+    var bakjesPrice = (icecream["bakje"] * price["bakje"]);
+    var hoorntjesPrice = (icecream["hoorntje"] * price["hoorntje"]);
+    var toppingPrice = (toppings["topping"] * 0.50);
+    //Bon
+    document.write("Papi Galato Bon-------------<br>");
+    document.write("bollentjes: " + icecream["bollentjes"] + " x " + price["bolletjes"] + " = " + bollentjesPrice + "<br>");
+    document.write("Liters: " + icecream["liter"] + " x " + price["liter"] + " = " + literPrice + "<br>");
+    document.write("Bakjes: " + icecream["bakje"] + " x " + price["bakje"] + " = " + bakjesPrice + "<br>");
+    document.write("Hoorntjes: " + icecream["hoorntje"] + " x " + price["hoorntje"] + " = " + hoorntjesPrice + "<br>");
+    document.write("Toppings: " + toppings["topping"] + " x  0,50  = " + toppingPrice + "<br>");
 }
