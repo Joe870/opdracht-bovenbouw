@@ -9,10 +9,15 @@ om te bepalen welke inhoud er ingeladen moet worden in je html
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
-    <header>
-        <p></p>
+<img class="menu__image" src="../images/php.jpg" alt="php image">
+    <header class="menu">
+        <!-- Verander later in links -->
+        <a href="../pages/onderwerp1.php" class="menu__option">Waterkringloop</a>
+        <a href="../pages/onderwerp2.php" class="menu__option">Videogames</a>
+        <a href="../pages/onderwerp3.php" class="menu__option">Stardew Valley</a>
     </header>
 </body>
 </html>
