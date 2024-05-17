@@ -1,0 +1,14 @@
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\bin\Debug\net8.0-windows\asignment2.exe
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\bin\Debug\net8.0-windows\asignment2.deps.json
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\bin\Debug\net8.0-windows\asignment2.runtimeconfig.json
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\bin\Debug\net8.0-windows\asignment2.dll
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\bin\Debug\net8.0-windows\asignment2.pdb
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\obj\Debug\net8.0-windows\asignment2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\obj\Debug\net8.0-windows\asignment2.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\obj\Debug\net8.0-windows\asignment2.AssemblyInfo.cs
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\obj\Debug\net8.0-windows\asignment2.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\obj\Debug\net8.0-windows\asignment2.dll
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\obj\Debug\net8.0-windows\refint\asignment2.dll
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\obj\Debug\net8.0-windows\asignment2.pdb
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\obj\Debug\net8.0-windows\asignment2.genruntimeconfig.cache
+C:\Users\Gebruiker\source\repos\asignment2\asignment2\obj\Debug\net8.0-windows\ref\asignment2.dll

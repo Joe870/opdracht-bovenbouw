@@ -1,0 +1,14 @@
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\bin\Debug\net8.0\assignment 2 versie 2.exe
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\bin\Debug\net8.0\assignment 2 versie 2.deps.json
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\bin\Debug\net8.0\assignment 2 versie 2.runtimeconfig.json
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\bin\Debug\net8.0\assignment 2 versie 2.dll
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\bin\Debug\net8.0\assignment 2 versie 2.pdb
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\obj\Debug\net8.0\assignment 2 versie 2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\obj\Debug\net8.0\assignment 2 versie 2.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\obj\Debug\net8.0\assignment 2 versie 2.AssemblyInfo.cs
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\obj\Debug\net8.0\assignment 2 versie 2.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\obj\Debug\net8.0\assignment 2 versie 2.dll
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\obj\Debug\net8.0\refint\assignment 2 versie 2.dll
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\obj\Debug\net8.0\assignment 2 versie 2.pdb
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\obj\Debug\net8.0\assignment 2 versie 2.genruntimeconfig.cache
+C:\Users\Gebruiker\source\repos\assignment 2 versie 2\assignment 2 versie 2\obj\Debug\net8.0\ref\assignment 2 versie 2.dll

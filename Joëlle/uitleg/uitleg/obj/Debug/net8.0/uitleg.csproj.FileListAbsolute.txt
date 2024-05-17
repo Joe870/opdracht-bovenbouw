@@ -1,0 +1,4 @@
+C:\Users\Gebruiker\source\repos\uitleg\uitleg\obj\Debug\net8.0\uitleg.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gebruiker\source\repos\uitleg\uitleg\obj\Debug\net8.0\uitleg.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\source\repos\uitleg\uitleg\obj\Debug\net8.0\uitleg.AssemblyInfo.cs
+C:\Users\Gebruiker\source\repos\uitleg\uitleg\obj\Debug\net8.0\uitleg.csproj.CoreCompileInputs.cache
