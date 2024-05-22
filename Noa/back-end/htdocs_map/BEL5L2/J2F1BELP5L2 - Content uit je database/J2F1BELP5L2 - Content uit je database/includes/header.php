@@ -15,9 +15,9 @@ om te bepalen welke inhoud er ingeladen moet worden in je html
 <img class="menu__image" src="images/php.jpg" alt="php image">
     <header class="menu">
         <!-- Verander later in links -->
-        <a href="?view=onderwerp1.php" class="menu__option">Waterkringloop</a>
-        <a href="?view=onderwerp2.php" class="menu__option">Videogames</a>
-        <a href="?view=onderwerp3.php" class="menu__option">Stardew Valley</a>
+        <a href="?view=Waterkringloop" class="menu__option">Waterkringloop</a>
+        <a href="?view=Videogames" class="menu__option">Videogames</a>
+        <a href="?view=Stardew valley" class="menu__option">Stardew Valley</a>
     </header>
 </body>
 </html>

@@ -12,7 +12,11 @@
 
 
 	<!-- laad hier via php de juiste contentpagina in (vanuit de pages map) in. Welke geselecteerd moet worden kun je uit de URL halen (URL_Params).-->
-
+  <?php
+    $onderwerp = $_GET["view"];
+    $pagina = "pages/$onderwerp";
+    include $pagina;
+  ?>
 	
 	<?php include "includes/footer.php"; ?>
 
