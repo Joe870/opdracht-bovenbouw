@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
             $defense = $row['defense'];
             $link = "";
             echo "<div id=container>";
-            echo "<a class=item href= {$imagetype}>";
+            echo "<a class=item href= character.php?id=$id>";
             echo "<div class=left>";
             echo "<img class=avatar src=resources/images/$imagetype>";
             echo "</div>";
