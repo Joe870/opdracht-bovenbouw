@@ -1,0 +1,16 @@
+body {
+    background-color: white;
+}
+
+footer {
+    margin-top: 10px;
+    background: lightblue;
+    padding: 10px;
+    border: solid 1px black;
+}
+
+.container {
+    background: lightblue;
+    padding: 10px;
+    border: solid 1px black;
+}

@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hallo</title>
-</head>
-<body>
-    <h1>Hallo gebruiker! Welkom op mijn pagina</h1>
-</body>
-</html>
+@extends("layouts.master")
+
+@section("content")
+<h1>Dit is de content van mijn begroetingspagina</h1>
+<div class="container">
+    <p>Dit is de bergroetingspagina! <br> Meer content komt later!</p>
+</div>
+@endsection
