@@ -9,11 +9,11 @@
 </head>
 <body>
 {{--   navigatiemenu--}}
-<nav>
-    <ul>
-        <li><a href="/hello">Welkom</a></li>
-        <li><a href="/genres">Genres</a></li>
-        <li><a href="/songs">Songs</a></li>
+<nav class="container">
+    <ul class="menu">
+        <a href="/hello">Welkom</a>
+        <a href="/genres">Genres</a>
+        <a href="/songs">Songs</a>
     </ul>
 </nav>
 

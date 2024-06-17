@@ -30,7 +30,18 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-        Song::create(["name" => $request->songName, "duration" => $request->songDuration, "genre_id" => $request->songGenreId]);
+        $validated = $request->validate([
+            "songName" => "required|string",
+            "songDuration" => "required|integer|min:0",
+            "songGenreId" => "required|integer|min:1|exists:genres,id",
+            "songArtist" => "required|string|min:1"
+        ]);
+        Song::create([
+            "name" => $request->songName,
+            "duration" => $request->songDuration,
+            "genre_id" => $request->songGenreId,
+            "artist" => $request->songArtist
+        ]);
     }
 
     /**
@@ -38,7 +49,7 @@ class SongController extends Controller
      */
     public function show(Song $song)
     {
-        //
+        return view("songs.detail");
     }
 
     /**

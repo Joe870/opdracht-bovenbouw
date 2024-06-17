@@ -12,7 +12,8 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-        //
+        $playlists = Playlist::all();
+        return view("playlists.index", ["playlists"=>$playlists]);
     }
 
     /**
@@ -20,7 +21,7 @@ class PlaylistController extends Controller
      */
     public function create()
     {
-        //
+        return view("playlists.create");
     }
 
     /**
@@ -28,7 +29,12 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            "playlistName" => "required|string",
+        ]);
+        Playlist::create([
+            "name" => $request->playlistName,
+        ]);
     }
 
     /**

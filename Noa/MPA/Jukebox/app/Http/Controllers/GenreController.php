@@ -13,7 +13,7 @@ class GenreController extends Controller
     public function index()
     {
         $genres = Genre::all();
-        return view("songs.genres", ["genres"=>$genres]);
+        return view("genres.index", ["genres"=>$genres]);
     }
 
     /**
@@ -29,6 +29,9 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            "genreName" => "unique:genres,name|required|min:2"
+        ]);
         //gebruik model om data in database te zetten
         Genre::create(["name" => $request->genreName]);
     }
