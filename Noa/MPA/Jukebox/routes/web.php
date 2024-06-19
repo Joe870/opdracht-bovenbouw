@@ -24,3 +24,5 @@ Route::post("/genre/store", [GenreController::class, "store"])->name("genre.stor
 Route::get("/playlists", [PlaylistController::class, "index"]);
 Route::get("/playlist/create", [PlaylistController::class, "create"]);
 Route::post("/playlist/store", [PlaylistController::class, "store"]);
+Route::get("/playlist/view/{playlist}", [PlaylistController::class, "show"]);
+Route::post("/playlist/addsong/{playlist}", [PlaylistController::class, "addSongToPlaylist"]);

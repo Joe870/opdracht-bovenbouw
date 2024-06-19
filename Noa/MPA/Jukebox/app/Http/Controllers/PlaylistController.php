@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Song;
 use App\Models\playlist;
 use Illuminate\Http\Request;
 
@@ -42,7 +43,8 @@ class PlaylistController extends Controller
      */
     public function show(playlist $playlist)
     {
-        //
+        $songs = Song::all();
+        return view("playlists.show", ["playlist" => $playlist, "songs" => $songs]);
     }
 
     /**
@@ -67,5 +69,11 @@ class PlaylistController extends Controller
     public function destroy(playlist $playlist)
     {
         //
+    }
+
+    public function addSongToPlaylist(Request $request, playlist $playlist){
+        $song = $request->selectedSong;
+        $playlist->songs()->attach($song);
+        return redirect()->back();
     }
 }
