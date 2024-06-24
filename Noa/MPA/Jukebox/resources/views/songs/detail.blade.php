@@ -1,10 +1,21 @@
 @extends("layouts.master")
 
-<!-- get id of song and then ask the model to pick their data up -->
 @section("content")
-    <h1>Song details</h1>
-    <a href="/songs">terug</a>
-    <ul class="container">
-        //
-    </ul>
+    <h1>{{$song->name}}</h1>
+    <p>{{$song->duration}}</p>
+    <p>{{$song->artist}}</p>
+    @foreach($playlists as $playlist)
+        -{{$playlist->name}}
+        <br>
+    @endforeach
+
+    <form action="/song/addplaylist/{{$song->id}}" method="POST">
+        @csrf
+        <select name="selectedPlaylist">
+            @foreach($playlists as $playlist)
+                <option value="{{$playlist->id}}">{{$playlist->name}}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="Add to playlist">
+    </form>
 @endsection

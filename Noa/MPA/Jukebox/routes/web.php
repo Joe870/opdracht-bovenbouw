@@ -15,7 +15,8 @@ Route::get("/hello", [Welcome::class, "hello"]);
 Route::get("/songs", [SongController::class, "index"]);
 Route::get("/song/create", [SongController::class, "create"]);
 Route::post("/song/store", [SongController::class, "store"]);
-Route::get("/song/show", [SongController::class, "show"]);
+Route::get("/song/view/{song}", [SongController::class, "show"]);
+Route::post("/song/addplaylist/{song}", [SongController::class, "addSongToPlaylist"]);
 
 Route::get("/genres", [GenreController::class, "index"]);
 Route::get("/genre/create", [GenreController::class, "create"]);

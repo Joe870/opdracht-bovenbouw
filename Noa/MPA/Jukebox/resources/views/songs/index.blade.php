@@ -4,8 +4,7 @@
     <h1>Hier is een lijst met alle leidjes</h1>
     <ul class="container">
         @foreach($songs as $song)
-            <p>{{$song->name}} - {{$song->genre->name}}</p>
-            <a href="/song/show">details</a>
+            <a href="/song/view/{{$song->id}}">{{$song->name}} - {{$song->genre->name}}</a><br>
         @endforeach
     </ul>
 @endsection
