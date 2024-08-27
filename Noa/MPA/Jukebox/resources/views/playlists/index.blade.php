@@ -2,11 +2,10 @@
 
 
 @section("content")
-    <h1>Hier is een lijst met alle playlists</h1>
+    <h1>Hier zie je de playlist van {{Auth::user()->name}}</h1>
     <ul class="container">
         @foreach($playlists as $playlist)
-            <a href="/playlist/view/{{$playlist->id}}">{{$playlist->name}}</a> 
-            @foreach($playlist->songs as $song) <p>- {{$song->name}}</p> @endforeach
+            <a href="/playlist/view/{{$playlist->id}}">{{$playlist->name}}</a><br> 
         @endforeach
     </ul>
 @endsection

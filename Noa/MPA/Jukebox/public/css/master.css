@@ -15,7 +15,18 @@ footer {
     border: solid 1px black;
 }
 
+.info_block {
+    border: solid 5px black;
+    margin: 10px 0px 10px 0px;
+    padding: 15px;
+}
+
 .menu {
     display: flex;
     gap: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }

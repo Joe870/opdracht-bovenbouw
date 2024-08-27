@@ -11,9 +11,11 @@
 {{--   navigatiemenu--}}
 <nav class="container">
     <ul class="menu">
-        <a href="/hello">Welkom</a>
+        <a href="/login">Inloggen</a>
+        <a href="/register">Registeren</a>
         <a href="/genres">Genres</a>
         <a href="/songs">Songs</a>
+        <a href="/playlists">Playlists</a>
     </ul>
 </nav>
 
