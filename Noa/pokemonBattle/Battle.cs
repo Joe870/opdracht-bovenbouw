@@ -7,6 +7,7 @@ namespace Pokebattle;
 
 class Battle
 {
+   
     //make pokemonFromBall a var in here
     public List<Trainer> createTrainerClass(List<string> trainerNames)
     {
@@ -22,9 +23,9 @@ class Battle
     {
         List<int> rounds = new List<int> { 0, 1, 2, 3, 4, 5, 6 };
         Trainer trainer = new Trainer("name", new List<Pokeball>());
-        Charmander charmander = new Charmander("Charmander", "fire", "water");
-        Squirtle squirtle = new Squirtle("Squirtle", "water", "leaf");
-        Bulbasaur bulbasaur = new Bulbasaur("Bulbasaur", "grass", "fire");
+        Pokemon charmander = new Charmander("Charmander", EnergyTypes.fire, EnergyTypes.water);
+        Pokemon squirtle = new Squirtle("Squirtle", EnergyTypes.water, EnergyTypes.grass);
+        Pokemon bulbasaur = new Bulbasaur("Bulbasaur", EnergyTypes.grass, EnergyTypes.fire);
         Pokeball pokeball = new Pokeball(charmander);
         Arena arena = new Arena();
         Pokemon prevWinner = null;
@@ -81,7 +82,7 @@ class Battle
             Pokemon winnerPokemon = decideWinner(pokemonOutBall1, pokemonOutBall2);
 
             //------WINNER ANNOUNCEMENT-----------------------------------------------------//
-            if (winnerPokemon.nickName == pokemonOutBall1.nickName & winnerPokemon.nickName == pokemonOutBall2.nickName)
+            if (winnerPokemon.getnickName() == pokemonOutBall1.getnickName() & winnerPokemon.getnickName() == pokemonOutBall2.getnickName())
             {
                 Console.WriteLine("Round is a draw");
                 if (prevWinner == pokemonOutBall1)
@@ -107,14 +108,14 @@ class Battle
             }
             else if (winnerPokemon == pokemonOutBall1)
             {
-                Console.WriteLine(winnerPokemon.nickName + " wins!");
+                Console.WriteLine(winnerPokemon.getnickName() + " wins!");
                 trainersClass[1].returnPokemon(pokemonOutBall2);
                 Console.WriteLine(trainersClass[1].name + " returns their pokeball");
                 winnerTrainer = trainersClass[0];
             }
             else if (winnerPokemon == pokemonOutBall2)
             {
-                Console.WriteLine(winnerPokemon.nickName + " wins!");
+                Console.WriteLine(winnerPokemon.getnickName() + " wins!");
                 trainersClass[0].returnPokemon(pokemonOutBall1);
                 Console.WriteLine(trainersClass[0].name + " returns their pokeball");
                 winnerTrainer = trainersClass[1];
@@ -127,9 +128,9 @@ class Battle
 
     public Pokemon decideWinner(Pokemon pokemonOutBall1, Pokemon pokemonOutBall2)
     {
-        if (pokemonOutBall1.strength == "fire" && pokemonOutBall2.strength == "grass" || pokemonOutBall1.strength == "grass" && pokemonOutBall2.strength == "fire")
+        if (pokemonOutBall1.getStrength() == EnergyTypes.fire && pokemonOutBall2.getStrength() == EnergyTypes.grass || pokemonOutBall1.getStrength() == EnergyTypes.grass && pokemonOutBall2.getStrength() == EnergyTypes.fire)
         {
-            if (pokemonOutBall1.strength == "fire")
+            if (pokemonOutBall1.getStrength() == EnergyTypes.fire)
             {
                 Pokemon winner = pokemonOutBall1;
                 return winner;
@@ -140,9 +141,9 @@ class Battle
                 return winner;
             }
         }
-        else if (pokemonOutBall1.strength == "grass" && pokemonOutBall2.strength == "water" || pokemonOutBall1.strength == "water" && pokemonOutBall2.strength == "grass")
+        else if (pokemonOutBall1.getStrength() == EnergyTypes.grass && pokemonOutBall2.getStrength() == EnergyTypes.water || pokemonOutBall1.getStrength() == EnergyTypes.water && pokemonOutBall2.getStrength() == EnergyTypes.grass)
         {
-            if (pokemonOutBall1.strength == "grass")
+            if (pokemonOutBall1.getStrength() == EnergyTypes.grass)
             {
                 Pokemon winner = pokemonOutBall1;
                 return winner;
@@ -153,9 +154,9 @@ class Battle
                 return winner;
             }
         }
-        else if (pokemonOutBall1.strength == "fire" && pokemonOutBall2.strength == "water" || pokemonOutBall1.strength == "water" && pokemonOutBall2.strength == "fire")
+        else if (pokemonOutBall1.getStrength() == EnergyTypes.fire && pokemonOutBall2.getStrength() == EnergyTypes.water || pokemonOutBall1.getStrength() == EnergyTypes.water && pokemonOutBall2.getStrength() == EnergyTypes.fire)
         {
-            if (pokemonOutBall1.strength == "water")
+            if (pokemonOutBall1.getStrength() == EnergyTypes.water)
             {
                 Pokemon winner = pokemonOutBall1;
                 return winner;

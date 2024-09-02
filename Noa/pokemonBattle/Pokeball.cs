@@ -5,10 +5,10 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Pokebattle;
 //Pokeball class
-class Pokeball
+sealed class Pokeball
 {
-    public Pokemon pokemon;
-    bool isFull = true;
+    private Pokemon pokemon;
+    private bool isFull = true;
 
     public Pokeball(Pokemon pokemon)
     {
@@ -19,7 +19,7 @@ class Pokeball
     {
         isFull = false;
         Pokemon pokemonFromBall = thrownPokeball.pokemon;
-        string name = pokemonFromBall.nickName;
+        string name = pokemonFromBall.getnickName();
         Console.WriteLine("Pokeball opens! release " + name);
         this.pokemon = null;
 
@@ -29,7 +29,7 @@ class Pokeball
     public void closePokeball()
     { 
         isFull = true;
-        string name = this.pokemon.nickName;
+        string name = this.pokemon.getnickName();
         Console.WriteLine(name + " returns to the pokeball");
         this.pokemon = null;
     }

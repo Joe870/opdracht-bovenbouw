@@ -7,8 +7,8 @@ namespace Pokebattle;
 
 class Arena
 {
-    public static int battleCount;
-    public static int roundCount;
+    private static int battleCount;
+    private static int roundCount;
 
     public List<Trainer> createTrainer()
     {

@@ -8,32 +8,46 @@ namespace Pokebattle;
 abstract class Pokemon
 {
 
-    public string nickName;
-    public string strength;
-    public string weakness;
+    private string nickName;
+    private EnergyTypes strength;
+    private EnergyTypes weakness;
 
-    public Pokemon(string nickName, string strength, string weakness)
+    public Pokemon(string nickName, EnergyTypes strength, EnergyTypes weakness)
     {
         this.nickName = nickName;
         this.strength = strength;
         this.weakness = weakness;
     }
 
-    public string getName()
+    public abstract void battleCry();
+
+    public string getnickName()
     {
-        return this.nickName;
+        return nickName;
     }
 
-    public abstract void battleCry();
+    public void setName(string newnickName)
+    {
+        this.nickName = newnickName;
+    }
+
+    public EnergyTypes getStrength()
+    {
+        return strength;
+    }
+
+    public EnergyTypes getWeakness()
+    {
+        return weakness;
+    }
 }
 
 class Charmander : Pokemon
 {
-    public Charmander(string nickName, string strength, string weakness) : base(nickName, strength, weakness)
+
+    public Charmander(string nickName, EnergyTypes strength, EnergyTypes weakness) : base(nickName, strength, weakness)
     {
-        this.nickName = "Charmander";
-        this.strength = "fire";
-        this.weakness = "water";
+
     }
 
     public override void battleCry()
@@ -41,18 +55,16 @@ class Charmander : Pokemon
         int amountBattleCry = 10;
         for (int i = 0; i < amountBattleCry; i++)
         {
-            Console.WriteLine(this.nickName + "!!!");
+            Console.WriteLine(this.getnickName() + "!!!");
         }
     }
 }
 
 class Squirtle : Pokemon
 {
-    public Squirtle(string nickName, string strength, string weakness) : base(nickName, strength, weakness)
+    public Squirtle(string nickName, EnergyTypes strength, EnergyTypes weakness) : base(nickName, strength, weakness)
     {
-        this.nickName = "Squirtle";
-        this.strength = "water";
-        this.weakness = "leaf";
+
     }
 
     public override void battleCry()
@@ -60,18 +72,16 @@ class Squirtle : Pokemon
         int amountBattleCry = 10;
         for (int i = 0; i < amountBattleCry; i++)
         {
-            Console.WriteLine(this.nickName + "!!!");
+            Console.WriteLine(this.getnickName() + "!!!");
         }
     }
 }
 
 class Bulbasaur : Pokemon
 {
-    public Bulbasaur(string nickName, string strength, string weakness) : base(nickName, strength, weakness)
+    public Bulbasaur(string nickName, EnergyTypes strength, EnergyTypes weakness) : base(nickName, strength, weakness)
     {
-        this.nickName = "Bulbasaur";
-        this.strength = "grass";
-        this.weakness = "fire";
+
     }
 
     public override void battleCry()
@@ -79,7 +89,7 @@ class Bulbasaur : Pokemon
         int amountBattleCry = 10;
         for (int i = 0; i < amountBattleCry; i++)
         {
-            Console.WriteLine(this.nickName + "!!!");
+            Console.WriteLine(this.getnickName() + "!!!");
         }
     }
 }

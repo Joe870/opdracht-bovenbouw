@@ -2,10 +2,10 @@
 
 namespace Pokebattle;
 
-enum EnergyTypes
+public enum EnergyTypes
 {
-    Fire,
-    Grass,
-    Water
+    fire,
+    grass,
+    water
 }
 //put the namespaces everywhere to make it work
