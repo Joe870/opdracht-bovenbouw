@@ -33,8 +33,12 @@ class PlaylistController extends Controller
         $validated = $request->validate([
             "playlistName" => "required|string",
         ]);
+        $validated = $request->validate([
+            "playlistDescription" => "required|string",
+        ]);
         Playlist::create([
             "name" => $request->playlistName,
+            "description" => $request->playlistDescription,
         ]);
     }
 

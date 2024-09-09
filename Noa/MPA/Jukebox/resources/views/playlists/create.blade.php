@@ -9,6 +9,11 @@
     @error("playlistName")
     <p>{{$message}}</p>
     @enderror
+    <label for="description">Vul een description in:</label>
+    <input type="text" name="playlistDescription">
+    @error("playlistDescription")
+    <p>{{$message}}</p>
+    @enderror
     <input type="submit">
 </form>
 @endsection
