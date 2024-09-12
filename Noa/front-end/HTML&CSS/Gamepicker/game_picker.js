@@ -277,6 +277,7 @@ function handle_click(e){
         console.log(gevraagde_genre)
         genre_value = gevraagde_genre.value
         console.log(genre_value)
+        lijst_geschikte_games = [];
         games.forEach(function(games){
             if(games['genre'].toLowerCase() == genre_value.toLowerCase()){
                 lijst_geschikte_games.push(games)

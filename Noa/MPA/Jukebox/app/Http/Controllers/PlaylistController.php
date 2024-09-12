@@ -11,7 +11,7 @@ class PlaylistController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $playlists = Playlist::all();
         return view("playlists.index", ["playlists"=>$playlists]);
