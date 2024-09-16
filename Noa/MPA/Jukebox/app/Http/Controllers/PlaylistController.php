@@ -13,7 +13,8 @@ class PlaylistController extends Controller
      */
     public function index(Request $request)
     {
-        $playlists = Playlist::all();
+        $userId = auth()->id();
+        $playlists = Playlist::where("user_id", $userId)->get();
         return view("playlists.index", ["playlists"=>$playlists]);
     }
 
@@ -36,9 +37,11 @@ class PlaylistController extends Controller
         $validated = $request->validate([
             "playlistDescription" => "required|string",
         ]);
+        $userId = auth()->id();
         Playlist::create([
             "name" => $request->playlistName,
             "description" => $request->playlistDescription,
+            "user_id" => $userId,
         ]);
     }
 
