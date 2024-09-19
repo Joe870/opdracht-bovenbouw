@@ -10,14 +10,24 @@
             <br>
         @endforeach
 
-        <form action="/song/addplaylist/{{$song->id}}" method="POST">
-            @csrf
-            <select name="selectedPlaylist">
-                @foreach($playlists as $playlist)
+        @if(Auth::check())
+            <form action="/song/addplaylist/{{$song->id}}" method="POST">
+                @csrf
+                <select name="selectedPlaylist">
                     <option value="{{$playlist->id}}">{{$playlist->name}}</option>
-                @endforeach
-            </select>
-            <input type="submit" value="Add to playlist">
-        </form>
+                </select>
+                <input type="submit" value="Add to playlist">
+            </form>
+        @else
+            @if(session('temporary_playlists'))
+                <form action="/song/addtemporaryPlaylist/{{$song->id}}" method="POST">
+                    @csrf
+                    <select name="selectedPlaylist">
+                        <option value="{{$playlist->name}}">{{$temporaryPlaylist->name}}</option>
+                    </select>
+                    <input type="submit" value="Add to temporary playlist">
+                </form>
+            @endif
+        @endif
     </div>
 @endsection

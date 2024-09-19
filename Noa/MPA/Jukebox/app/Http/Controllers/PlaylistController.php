@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Song;
 use App\Models\playlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlaylistController extends Controller
 {
@@ -30,20 +31,45 @@ class PlaylistController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+{
+    if (Auth::check()) {
         $validated = $request->validate([
             "playlistName" => "required|string",
-        ]);
-        $validated = $request->validate([
             "playlistDescription" => "required|string",
         ]);
+        
         $userId = auth()->id();
         Playlist::create([
             "name" => $request->playlistName,
             "description" => $request->playlistDescription,
             "user_id" => $userId,
         ]);
+
+        return redirect()->back()->with('success', 'Playlist created!');
+    } else {
+        // Go to function storeTemporaryplaylist
+        return $this->storeTemporaryPlaylist($request);
     }
+}
+
+public function storeTemporaryPlaylist(Request $request)
+{
+    $validated = $request->validate([
+        "playlistName" => "required|string",
+        "playlistDescription" => "required|string",
+    ]);
+
+    $temporaryPlaylists = session()->get('temporary_playlists', []);
+    $temporaryPlaylists[] = [
+        'name' => $validated['playlistName'],
+        'description' => $validated['playlistDescription'],
+    ];
+    session()->put('temporary_playlists', $temporaryPlaylists);
+
+    return redirect()->back()->with('success', 'Temporary playlist created!');
+}
+
+    
 
     /**
      * Display the specified resource.
