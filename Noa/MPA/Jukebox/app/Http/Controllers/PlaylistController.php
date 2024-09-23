@@ -31,43 +31,44 @@ class PlaylistController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    if (Auth::check()) {
+    {
+        if (Auth::check()) {
+            $validated = $request->validate([
+                "playlistName" => "required|string",
+                "playlistDescription" => "required|string",
+            ]);
+            
+            $userId = auth()->id();
+            Playlist::create([
+                "name" => $request->playlistName,
+                "description" => $request->playlistDescription,
+                "user_id" => $userId,
+            ]);
+
+            return redirect()->back()->with('success', 'Playlist created!');
+        } else {
+            // Go to function storeTemporaryplaylist
+            return $this->storeTemporaryPlaylist($request);
+        }
+    }
+
+    public function storeTemporaryPlaylist(Request $request)
+    {
         $validated = $request->validate([
             "playlistName" => "required|string",
             "playlistDescription" => "required|string",
         ]);
-        
-        $userId = auth()->id();
-        Playlist::create([
-            "name" => $request->playlistName,
-            "description" => $request->playlistDescription,
-            "user_id" => $userId,
-        ]);
 
-        return redirect()->back()->with('success', 'Playlist created!');
-    } else {
-        // Go to function storeTemporaryplaylist
-        return $this->storeTemporaryPlaylist($request);
+        $temporaryPlaylists = session()->get('temporary_playlists', []);
+        $temporaryPlaylists[] = [
+            'name' => $validated['playlistName'],
+            'description' => $validated['playlistDescription'],
+            'songs' => [],
+        ];
+        session()->put('temporary_playlists', $temporaryPlaylists);
+
+        return redirect()->back()->with('success', 'Temporary playlist created!');
     }
-}
-
-public function storeTemporaryPlaylist(Request $request)
-{
-    $validated = $request->validate([
-        "playlistName" => "required|string",
-        "playlistDescription" => "required|string",
-    ]);
-
-    $temporaryPlaylists = session()->get('temporary_playlists', []);
-    $temporaryPlaylists[] = [
-        'name' => $validated['playlistName'],
-        'description' => $validated['playlistDescription'],
-    ];
-    session()->put('temporary_playlists', $temporaryPlaylists);
-
-    return redirect()->back()->with('success', 'Temporary playlist created!');
-}
 
     
 
@@ -105,8 +106,29 @@ public function storeTemporaryPlaylist(Request $request)
     }
 
     public function addSongToPlaylist(Request $request, playlist $playlist){
-        $song = $request->selectedSong;
-        $playlist->songs()->attach($song);
-        return redirect()->back();
+        if (Auth::check())
+        {
+            $song = $request->selectedSong;
+            $playlist->songs()->attach($song);
+            return redirect()->back();
+        } else {
+            return $this->addSongToTemporaryPlaylist($request, $playlist);
+        }
+    }
+
+    public function addSongToTemporaryPlaylist(Request $request, playlist $playlist)
+    {
+        $songId = $request->selectedSong;
+        $temporaryPlaylists = session()->get('temporary_playlists');
+
+        foreach ($temporaryPlaylists as &$tempPlaylist) {
+            if ($tempPlaylist['name'] == $playlist->name) {
+                $tempPlaylist['songs'][] = $songId;
+                session()->put('temporary_playlists', $temporaryPlaylists);
+            }
+        }
+
+        return redirect()->back()->with('success', 'Song added to temporary playlist!');
+
     }
 }
