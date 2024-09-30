@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Song;
 use App\Models\playlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SongController extends Controller
 {
@@ -79,8 +80,28 @@ class SongController extends Controller
     }
 
     public function addSongToPlaylist(Request $request, Song $song){
-        $playlist = $request->selectedPlaylist;
-        $song->playlists()->attach($playlist);
-        return redirect()->back();
+        if (Auth::check())
+        {
+            $playlist = $request->selectedPlaylist;
+            $song->playlists()->attach($playlist);
+            return redirect()->back();
+        } else {
+            return $this->addSongToTemporaryPlaylist($request, $song);
+        }
+    }
+
+    public function addSongToTemporaryPlaylist(Request $request, Song $song)
+    {
+        $songId = $song->id;
+        $temporaryPlaylists = session()->get('temporary_playlists');
+        $playlistName = $request->selectedPlaylist;
+
+        foreach ($temporaryPlaylists as &$tempPlaylist) {
+            if ($tempPlaylist['name'] == $playlistName) {
+                $tempPlaylist['songs'][] = $songId;
+                session()->put('temporary_playlists', $temporaryPlaylists);
+            }
+        }
+        return redirect()->back()->with('success', 'Song added to temporary playlist!');
     }
 }

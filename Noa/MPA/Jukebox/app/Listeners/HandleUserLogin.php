@@ -17,25 +17,28 @@ class HandleUserLogin
      */
     public function handle(Login $event)
     {
-        // Get the user who just logged in
-        $user = $event->user;
 
-        // Retrieve temporary playlists stored in the session
+        $user = $event->user;
         $temporaryPlaylists = session()->get('temporary_playlists', []);
 
-        // If there are temporary playlists, move them to the database
         if (!empty($temporaryPlaylists)) {
             foreach ($temporaryPlaylists as $tempPlaylist) {
-                // Save each temporary playlist into the 'playlists' table, associating it with the logged-in user
-                Playlist::create([
+                $playlist = Playlist::create([
                     'name' => $tempPlaylist['name'],
                     'description' => $tempPlaylist['description'],
-                    'user_id' => $user->id,  // Associate the playlist with the logged-in user
+                    'user_id' => $user->id,
                 ]);
+
+                if (!empty($tempPlaylist['songs'])) {
+                    $songs = $tempPlaylist['songs'];
+                    foreach ($songs as $song) {
+                        $playlist->songs()->attach($song);
+                    }
+                }
             }
 
-            // Clear the temporary playlists from the session after saving them
             session()->forget('temporary_playlists');
         }
     }
+
 }

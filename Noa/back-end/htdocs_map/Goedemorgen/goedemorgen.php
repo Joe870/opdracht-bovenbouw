@@ -1,6 +1,7 @@
 <?php
 $date = date("H:i");
-if ($date < "00:00" or $date > "18:00"){
+$date = "06:00";
+if ($date >= "18:00"){
     $image =  "evening";
     $goede = "avond";
 }elseif ($date < "06:00"){

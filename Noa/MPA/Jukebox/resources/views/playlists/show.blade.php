@@ -1,5 +1,12 @@
 @extends("layouts.master")
 
+<?php
+$playlistDuration = 0;
+foreach($playlist->songs as $song)
+{
+    $playlistDuration += $song->duration;
+}
+?>
 @section("content")
     <div class="info_block">
         <h1>Name: {{$playlist->name}}</h1>
@@ -9,6 +16,7 @@
             -{{$song->name}}
             <br>
         @endforeach
+        <p>Playlist Duration: {{$playlistDuration}}</p>
 
         <form action="/playlist/addsong/{{$playlist->id}}" method="POST">
             @csrf
