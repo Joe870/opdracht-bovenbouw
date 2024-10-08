@@ -39,5 +39,8 @@ Route::get("/playlist/create", [PlaylistController::class, "create"]);
 Route::post("/playlist/store", [PlaylistController::class, "store"]);
 Route::get("/playlist/view/{playlist}", [PlaylistController::class, "show"]);
 Route::post("/playlist/addsong/{playlist}", [PlaylistController::class, "addSongToPlaylist"]);
+Route::get("/playlist/edit/{playlist}", [PlaylistController::class, "edit"]);
+Route::post("/playlist/update/{playlist}", [PlaylistController::class, "update"]);
+Route::post("/playlist/delete/{playlist}", [PlaylistController::class, "delete"]);
 
 require __DIR__.'/auth.php';

@@ -77,8 +77,14 @@ class PlaylistController extends Controller
      */
     public function show(playlist $playlist)
     {
+        $playlistDuration = 0;
+        foreach($playlist->songs as $song)
+        {
+            $playlistDuration += $song->duration;
+        }
         $songs = Song::all();
-        return view("playlists.show", ["playlist" => $playlist, "songs" => $songs]);
+        $playlistSongs = $playlist->songs;
+        return view("playlists.show", ["playlist" => $playlist, "songs" => $songs, "playlistDuration" => $playlistDuration, "playlistSongs" => $playlistSongs]);
     }
 
     /**
@@ -86,7 +92,7 @@ class PlaylistController extends Controller
      */
     public function edit(playlist $playlist)
     {
-        //
+        return view("playlists.edit", ["playlist" => $playlist]);
     }
 
     /**
@@ -94,15 +100,27 @@ class PlaylistController extends Controller
      */
     public function update(Request $request, playlist $playlist)
     {
-        //
+        $validated = $request->validate([
+            "playlistName" => "required|string",
+            "playlistDescription" => "required|string",
+        ]);
+
+        $playlist->update([
+            "name" => $request->playlistName,
+            "description" => $request->playlistDescription,
+        ]);
+
+        return redirect()->back()->with('success', 'Playlist updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(playlist $playlist)
+    public function delete(Request $request, playlist $playlist)
     {
-        //
+        $song = $request->selectedSong;
+        $playlist->songs()->detach($song);
+        return redirect()->back();
     }
 
     public function addSongToPlaylist(Request $request, playlist $playlist){

@@ -4,57 +4,61 @@ $username = "root";
 $password = "";
 $dbname = "characters";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 if (isset($_GET['id'])){
+    $sql = $conn->prepare("SELECT * FROM characters WHERE id = :id");
     $id = $_GET['id'];
-    $sql = "SELECT * FROM characters WHERE id = $id";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    if ($result->num_rows > 0){
-    $id = $row['id'];
-    $imagetype = $row['avatar'];
-    $health = $row['health'];
-    $attack = $row['attack'];
-    $defense = $row['defense'];
-    $color = $row['color'];
-    $text = $row['bio'];
-    $weapon = $row['weapon'];
-    $armor = $row['armor'];
-    $name = $row['name'];
-    echo "<header><h1>$name</h1>";
-    echo "<a class=backbutton href=index.php><i class=fas fa-long-arrow-alt-left></i> Terug</a></header>";
-    echo "<div id=container>";
-    echo "<div class=detail>";
-    echo "<div class=left>";
-    echo "<img class=avatar src=resources/images/$imagetype>";
-    echo "<div class=stats style=background-color: yellowgreen>";
-    echo "<ul class=fa-ul>";
-    echo "<li><span class=fa-li><i class=fas fa-heart></i></span> 10000</li>";
-    echo "<li><span class=fa-li><i class=fas fa-fist-raised></i></span> 400</li>";
-    echo "<li><span class=fa-li><i class=fas fa-shield-alt></i></span> 100</li>";
-    echo "</ul>";
-    echo "<ul class=gear>";
-    echo "<li><b>Weapon</b>: $weapon</li>";
-    echo "<li><b>Armor</b>: $armor</li>";
-    echo "</ul>";
-    echo "</div>";
-    echo "</div>";
-    echo "<div class=right>";
-    echo "<p>$text</p>";
-    echo "</div>";
-    echo "<div style=clear: both></div>";
-    echo "</div>";
-    echo "</div>";
-    echo "<footer>&copy; [jenaam] 2023</footer>";
-    } else {
+    $sql->bindParam(':id', $id, PDO::PARAM_INT);
+    $sql->execute();
+    $row = $sql->fetch(PDO::FETCH_ASSOC);
+    if ($row){?>
+
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>All characters</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link href="resources/css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+
+        <header><h1><?php echo $row["name"] ?></h1>
+            <a class="backbutton" href="index.php"><i class="fas fa-long-arrow-alt-left"></i> Terug</a>
+        </header>
+        <div id=container>
+            <div class=detail>
+                <div class=left>
+                    <img class=avatar src=resources/images/<?php echo $row["avatar"] ?>>
+                    <div class="stats" style="background-color: <?php echo $row["color"] ?>">
+                        <ul class="fa-ul">
+                            <li><span class="fa-li"><i class="fas fa-heart"></i></span><?php echo $row["health"] ?></li>
+                            <li><span class="fa-li"><i class="fas fa-fist-raised"></i></span><?php echo $row["attack"] ?></li>
+                            <li><span class="fa-li"><i class="fas fa-shield-alt"></i></span><?php echo $row["defense"] ?></li>
+                        </ul>
+                        <ul class="gear">
+                            <li><b>Weapon</b>: <?php echo $row["weapon"] ?></li>
+                            <li><b>Armor</b>: <?php echo $row["armor"] ?></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class=right>
+                    <p><?php echo $row["bio"] ?></p>
+                </div>
+                <div style=clear: both></div>
+            </div>
+        </div>
+        <footer>&copy; [jenaam] 2023</footer>
+    </body>
+    <?php } else { ?>
         echo "Geen resultaten gevonden voor ID $id";
-    }
-} else {
+    <?php } ?>
+<?php } else {
     echo "Geen ID opgegeven";
-}
-//Need to use a get to know which character info you need to request
-?>
+}?>
