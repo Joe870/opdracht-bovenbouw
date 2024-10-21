@@ -52,7 +52,7 @@
 }
 
 .screenshot {
-    width: 250px;
+    width: 238px;
     height: 250px;
     object-fit: cover;
 }
@@ -60,4 +60,20 @@
 .content_box {
     border: solid 1px black;
     padding: 0 20px;
+}
+
+* {
+    font-family: sans-serif;
+}
+
+main {
+    width: 1000px;
+}
+
+ul {
+    margin: 0;
+}
+
+h1 {
+    font-size: 23px;
 }

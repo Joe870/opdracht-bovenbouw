@@ -1,8 +1,7 @@
 from machine import Pin
 from utime import sleep
 
-lampje = Pin(1, Pin.OUT)
+lampje = Pin(2, Pin.OUT)
 
 while True:
-    lampje.toggle()
-    sleep(1)
+    lampje.on()
